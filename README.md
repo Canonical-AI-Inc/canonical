@@ -7,7 +7,7 @@ The old Natural Language Processing approaches to voice AI fell short of user ex
 But first, we have to address latency. In voice conversation, users expect a 300 millisecond or less response from the AI. In applications with a sufficiently well-written system prompt, the context window bogs the latency down to seconds – and that’s before conversation turns add to the context window.
 
 ## Solution
-Canonical AI is an optimization engine for conversational AI. A highly-performant semantic cache is the core of our technology. In order for the semantic cache to work in a conversation, we make the cache aware of the conversational context.
+Canonical AI is an optimization engine for conversational AI. A ultra-low latency semantic cache is the core of our technology. In order for the semantic cache to work in a conversation, we make the cache aware of the conversational context.
 
 Here is a basic description of a simple semantic cache. For each new user query, the code first semantically searches the cache for what is essentially the same query – even if the query phrasing is different. If a match is found in the cache, the code returns the answer from the cache rather than calling the LLM. Cache hits return responses faster and cost less compared to calling a foundational LLM API. 
 
@@ -17,12 +17,13 @@ To address the contextual requirements of conversation AI caching, a newly-deplo
 
 ## Features
 
- - Fast, Accurate Semantic Caching. The high precision Canonical Cache returns hits that answer the query correctly. The high recall of the cache means you don’t miss out on hits – and opportunities for latency and cost reduction. 
- - Caching for Conversational AI. The Canonical Cache is context-aware. It learns the conversation and identifies the appropriate opportunities for caching before acting. 
- - Multitenancy. Each product, each AI persona, or each user can have its own cache. You decide the scope of the cache.  
- - Cache Seeding. Rephrased queries increase the likelihood of cache hits. Rephrased chat completions create variation in the cached responses.
- - Speedy Input Validation. Sometimes a conversation can’t proceed without making sure a user input is correct. Canonical uses the appropriate model for each validation task.
- - Simple Integration. Deploy the Canonical Cache to your data pipeline via an API call one step upstream of your LLM call. If there’s a cache miss, then send the LLM completion to the Canonical Cache after you’ve responded to the user.
+ - **Fast Semantic Caching.** Cache hits return responses faster than an LLM. Cache misses add to the latency of calling an LLM. We minimize the latency penalty of cache misses with our sub 100 ms response time. 
+ - **Accurate Semantic Caching.** The high precision Canonical Cache returns hits that answer the query correctly. The high recall of the cache means you don’t miss out on hits – and opportunities for latency and cost reduction. 
+ - **Caching for Conversational AI**. The Canonical Cache is context-aware. It learns the conversation and identifies the appropriate opportunities for caching before acting. 
+ - **Multitenancy**. Each product, each AI persona, or each user can have its own cache. You decide the scope of the cache.  
+ - **Cache Seeding**. Rephrased queries increase the likelihood of cache hits. Rephrased chat completions create variation in the cached responses.
+ - **Speedy Input Validation**. Sometimes a conversation can’t proceed without making sure a user input is correct. Canonical uses the appropriate model for each validation task.
+ - **Simple Integration**. Deploy the Canonical Cache to your data pipeline via an API call one step upstream of your LLM call. If there’s a cache miss, then send the LLM completion to the Canonical Cache after you’ve responded to the user.
    
 ## Metrics
 
@@ -52,7 +53,11 @@ Remember the ‘90s? Servers were neat and novel! Engineers loved setting up ser
 
 ## Integration
 
-You connect with the Canonical Cache via an API call. When you make a call to your LLM API, you also make a call to the Canonical API. If the Canonical Cache finds a hit, it returns the cached response. If there is no cache hit, then Canonical returns a 404. You can also integrate Canonical via proxy integration using the Open AI base URL. More details about the integration can be found here. 
+You connect with the Canonical Cache via an API call. You call the Canonical Cache before you call the LLM API. If the Canonical Cache finds a hit, it returns the cached response. If there is no cache hit, then Canonical returns a 404 and you then call the LLM. You can also integrate Canonical via proxy integration using the Open AI base URL. More details about the integration can be found on our demo page \(see below\). 
+
+## Try it out
+
+You can try out the semantic cache on [our demo](https://pg-demo.streamlit.app/).
 
 ## Pricing
 
