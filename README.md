@@ -17,11 +17,12 @@ To address the contextual requirements of conversation AI caching, a newly-deplo
 
 ## Features
 
- - **Fast Semantic Caching.** Cache hits return responses faster than an LLM. Cache misses add to the latency of calling an LLM. We minimize the latency penalty of cache misses with our sub 100 ms response time. 
+ - **Fast Semantic Caching.** Cache hits return responses faster than an LLM. Cache misses add to the latency of calling an LLM. We minimize the latency penalty of cache misses with our sub-100 ms response time. 
  - **Accurate Semantic Caching.** The high precision Canonical Cache returns hits that answer the query correctly. The high recall of the cache means you don’t miss out on hits – and opportunities for latency and cost reduction. 
  - **Caching for Conversational AI**. The Canonical Cache is context-aware. It learns the conversation and identifies the appropriate opportunities for caching before acting. 
  - **Multitenancy**. Each product, each AI persona, or each user can have its own cache. You decide the scope of the cache.  
- - **Cache Seeding**. Rephrased queries increase the likelihood of cache hits. Rephrased chat completions create variation in the cached responses.
+ - **Cache Seeding**. Rephrasings of each query get stored in the Canonical Cache to increase the likelihood of cache hits. 
+ - **Tunable Variation on Cache Hits**. You decide whether you want a cache hit to return the same response or differently phrased responses. 
  - **Speedy Input Validation**. Sometimes a conversation can’t proceed without making sure a user input is correct. Canonical uses the appropriate model for each validation task.
  - **Simple Integration**. Deploy the Canonical Cache to your data pipeline via an API call one step upstream of your LLM call. If there’s a cache miss, then send the LLM completion to the Canonical Cache after you’ve responded to the user.
    
