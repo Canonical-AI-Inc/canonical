@@ -54,7 +54,13 @@ Remember the ‘90s? Servers were neat and novel! Engineers loved setting up ser
 
 ## Integration
 
+*API and Proxy*
+
 You connect with the Canonical Cache via an API call. You call the Canonical Cache before you call the LLM API. If the Canonical Cache finds a hit, it returns the cached response. If there is no cache hit, then Canonical returns a 404 and you then call the LLM. You can also integrate Canonical via proxy integration using the Open AI base URL. More details about the integration can be found on our demo page \(see below\). 
+
+*On-Prem*
+
+Coming soon!
 
 ## Try it out
 
