@@ -1,9 +1,10 @@
-import httpx
 import json
-import openai
 import os
-import requests
 from typing import List
+
+import httpx
+import openai
+import requests
 from dotenv import load_dotenv
 
 load_dotenv(".env")
@@ -38,13 +39,17 @@ def complete(
     )
 
 
-def displaycompletion(completion: openai.ChatCompletion, stream: bool) -> None:
+def displaycompletion(completion: openai.ChatCompletion, stream: bool) -> str:
+    msg = ""
     if stream:
         for chunk in completion:
             if chunk.choices[0].delta.content is not None:
-                print(chunk.choices[0].delta.content, end="", flush=True)
+                msg += chunk.choices[0].delta.content
+                print(msg, end="", flush=True)
     else:
-        print(completion.choices[0].message.content)
+        msg = completion.choices[0].message.content
+        print(msg)
+    return msg
 
 
 def updatecache(messages: List[dict[str:str]], temp: int = 0) -> None:
@@ -79,7 +84,8 @@ def main() -> None:
     stream = False
     try:
         response = complete(CACHECLIENT, examplemsgs, stream, TEMPERATURE)
-        _ = displaycompletion(response, stream)
+        msg = displaycompletion(response, stream)
+        examplemsgs.append({"role": "assistant", "content": msg})
     except openai.NotFoundError as e:
         stream = True
         response = complete(OPENAICLIENT, examplemsgs, stream, TEMPERATURE)
