@@ -63,7 +63,8 @@ def updatecache(messages: List[dict[str:str]], temp: int = 0) -> None:
         data=json.dumps(
             {
                 "messages": messages,
-                "temperature": "temp",
+                "temperature": temp,
+                "model": "gpt-3.5-turbo",
             }
         ),
     )
