@@ -1,1 +1,5 @@
 .env
+secrets
+charts
+k8s
+.DS_Store

@@ -1,0 +1,75 @@
+services:
+  db:
+    image: "canonicalai/postgres:latest"
+    build:
+      platforms:
+        - "linux/amd64"
+        - "linux/arm64"
+    restart: always
+    shm_size: 128m
+    expose:
+      - "5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      DB_USERNAME: '/run/secrets/dbusername'
+      DB_PASSWORD: '/run/secrets/dbpassword'
+      POSTGRES_PASSWORD: '/run/secrets/dbrootpassword'
+    secrets:
+      - dbusername
+      - dbpassword
+      - dbrootpassword
+  web:
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+    image: "canonicalai/cacheapp:latest"
+    build:
+      platforms:
+        - "linux/amd64"
+        - "linux/arm64"
+    ports:
+      - "8000:8000"
+    environment:
+      SECRET_KEY: '/run/secrets/secretkey'
+      DJANGO_SUPERUSER_EMAIL: '/run/secrets/superemail'
+      DJANGO_SUPERUSER_USERNAME: '/run/secrets/superusername'
+      DJANGO_SUPERUSER_PASSWORD: '/run/secrets/superpassword'
+      CANONICAL_CACHE_API_KEY: '/run/secrets/apikey'
+      DATABASE_PASSWORD: '/run/secrets/dbpassword'
+      DATABASE_USERNAME: '/run/secrets/dbusername'
+      DATABASE_NAME: "canonical_cache"
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      ORG_NAME: "Canonical"
+      CANONICAL_CACHE_API_URL: "https://cacheapp.canonical.chat/"
+    secrets:
+      - dbpassword
+      - dbusername
+      - secretkey
+      - superemail
+      - superusername
+      - superpassword
+      - apikey
+
+secrets:
+  superemail:
+    file: ./secrets/superemail.txt
+  superusername:
+    file: ./secrets/superusername.txt
+  superpassword:
+    file: ./secrets/superpassword.txt
+  apikey:
+    file: ./secrets/apikey.txt
+  secretkey:
+    file: ./secrets/secretkey.txt
+  dbusername:
+    file: ./secrets/dbusername.txt
+  dbpassword:
+    file: ./secrets/dbpassword.txt
+  dbrootpassword:
+    file: ./secrets/dbrootpassword.txt
