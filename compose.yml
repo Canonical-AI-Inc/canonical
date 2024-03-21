@@ -1,10 +1,7 @@
 services:
   db:
-    image: "canonicalai/postgres:latest"
-    build:
-      platforms:
-        - "linux/amd64"
-        - "linux/arm64"
+    command: -c ssl=on -c ssl_cert_file=/var/opt/postgresql/server.crt -c ssl_key_file=/var/opt/postgresql/server.key
+    image: "canonicalai.azurecr.io/postgres:latest"
     restart: always
     shm_size: 128m
     expose:
@@ -15,6 +12,7 @@ services:
       timeout: 5s
       retries: 5
     environment:
+      DB_NAME: "canonical_cache"
       DB_USERNAME: '/run/secrets/dbusername'
       DB_PASSWORD: '/run/secrets/dbpassword'
       POSTGRES_PASSWORD: '/run/secrets/dbrootpassword'
@@ -27,11 +25,7 @@ services:
       db:
         condition: service_healthy
     restart: always
-    image: "canonicalai/cacheapp:latest"
-    build:
-      platforms:
-        - "linux/amd64"
-        - "linux/arm64"
+    image: "canonicalai.azurecr.io/cacheapp:latest"
     ports:
       - "8000:8000"
     environment:
@@ -45,6 +39,10 @@ services:
       DATABASE_NAME: "canonical_cache"
       DATABASE_HOST: db
       DATABASE_PORT: 5432
+      ENV: "prod"
+      DEBUG: "FALSE"
+      DJANGO_DEBUG: "FALSE"
+      DJANGO_SETTINGS_MODULE: "canonical.settings"
       ORG_NAME: "Canonical"
       CANONICAL_CACHE_API_URL: "https://cacheapp.canonical.chat/"
     secrets:
