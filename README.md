@@ -103,10 +103,6 @@ _On-Prem_
 
 Coming soon! We're working on seemless Docker and Helm deploymenyts.
 
-## Try it out
-
-You can try out the semantic cache on [our demo](https://pg-demo.streamlit.app/).
-
 ## Pricing
 
 For the semantic cache, we charge only for cache hits. Whatever model you're using, we charge 50% of the per token price on cache hits.
