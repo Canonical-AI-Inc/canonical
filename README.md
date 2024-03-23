@@ -101,7 +101,7 @@ requests.request(
 
 _On-Prem_
 
-Coming soon! We're working on seemless Docker and Helm deploymenyts.
+Coming soon! We're working on seemless Docker and Helm deployments.
 
 ## Pricing
 
