@@ -43,7 +43,7 @@ A simple semantic cache using cosine similarity vector search has low precision.
 
 The GPTCache configuration with the albert-duplicate-onnx model evaluator performs overall worse than the simple cosine similarity search. Note, the GPTCache configuration with a model evaluator trained on the Quora Duplicate Questions dataset has a precision and recall of 0.59 and 0.78, respectively.
 
-The Canonical Cache has a precision of 0.84 and recall of 0.85. In other words, 84% of cache hits are actually duplicate questions, and the Canonical Cache finds 85% of the duplicated questions. The mean response time is about 300 milliseconds.
+The Canonical Cache has a precision of 0.84 and recall of 0.85. In other words, 84% of cache hits are actually duplicate questions, and the Canonical Cache finds 85% of the duplicated questions. 
 
 ## Build Versus Buy
 
