@@ -2,4 +2,6 @@
 secrets
 charts
 k8s
+venv/
+tom_notes.txt
 .DS_Store
