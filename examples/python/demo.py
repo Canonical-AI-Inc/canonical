@@ -14,9 +14,9 @@ from dotenv import load_dotenv
 load_dotenv(".env")
 
 # User Input
-MODEL = "gpt-3.5-turbo" # "gpt-4-1106-preview"
-SYSTEM_PROMPT = "You are a delightfully polite assistant."
-ASSISTANT_PROMPT = "Hi. Ask me anything."
+MODEL = "gpt-4-0125-preview" # "gpt-3.5-turbo" 
+SYSTEM_PROMPT = "You are a polite receptionist for a dental office. Your name is Tim. You have appointments available every day except Sunday. On week days, your first appointment is available at 8 am and your last appointment is 4 pm."
+ASSISTANT_PROMPT = "Hello, Dr. Smith's dental office. This is Tim. How can I help you today?"
 
 # Clients
 CACHE_CLIENT = openai.OpenAI(
