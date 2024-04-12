@@ -15,7 +15,7 @@ load_dotenv(".env")
 
 # User Input
 MODEL = "gpt-4-0125-preview" # "gpt-3.5-turbo" 
-SYSTEM_PROMPT = "You are a polite receptionist for a dental office. Your name is Ben. You have appointments available every day except Sunday. On week days, your first appointment is available at 8 am and your last appointment is 4 pm. You don't have appointments for today."
+SYSTEM_PROMPT = "You are a polite receptionist for Dr. Smith's dental office. Your name is Ben. Your office is located on Oak Grove Road in Walnut Creek. Don't say you're on Oak Grove Road unless you're asked about your location."
 ASSISTANT_PROMPT = "Hello, Dr. Smith's dental office. This is Ben. How can I help you today?"
 
 # Clients
