@@ -18,7 +18,7 @@ Next, create a `.env` file in the root of the project with the following content
 cp .env.example .env
 ```
 
-Then, replace the `CANONICAL_API_KEY` and the `OPENAI_API_KEY` values in the `.env` file with their actual values.
+Then, replace the `CANONICAL_API_KEY` ([email us](mailto:hello@canonical.chat) for a key) and the `OPENAI_API_KEY` values in the `.env` file with their actual values.
 
 Then, run the script:
 
@@ -28,7 +28,7 @@ python demo.py
 
 ## How To Use The Demo
 
-1. Update the `SYSTEM PROMPT` in `demo.py` to start a new cache.
+1. Update the `SYSTEM_PROMPT` in `demo.py` to start a new cache.
 2. Save `demo.py`.
 3. Run the script.
 3. Start chatting with the LLM.
@@ -38,7 +38,7 @@ python demo.py
 The Canonical AI Semantic Cache is built for Conversational AI. For caching to work in a conversational application, the semantic cache must be aware of the chat history and the context of each query. In other words, a cache hit requires the user query and previous user-LLM interactions to match. As such, asking the same thing over and over won't necessarily produce a cache hit. After all, you wouldn't want that to be the experience in human conversations!
 
 Here are some tips:
-1. Start a new cache by updating `SYSTEM PROMPT` in `demo.py`.
+1. Start a new cache by updating `SYSTEM_PROMPT` in `demo.py`.
 2. Save `demo.py`.
 2. Run the script and have a conversation with the LLM in your terminal. The new cache will get populated with LLM responses.
 3. Type `Ctrl + C` to stop the session. Then, type `python demo.py` to start a new conversation.
@@ -47,7 +47,7 @@ Here are some tips:
 
 ## Example
 
-Update the `SYSTEM PROMPT` in `demo.py` to start a new cache. Then, run the script with `python demo.py` to start a conversation.
+Update the `SYSTEM_PROMPT` in `demo.py` to start a new cache. Then, run the script with `python demo.py` to start a conversation.
 
 ```
 Assistant: Hello, Dr. Smith's dental office. This is Tim. How can I help you today?
