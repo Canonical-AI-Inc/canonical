@@ -15,7 +15,7 @@ load_dotenv(".env")
 
 # User Input
 MODEL = "gpt-4-0125-preview" # "gpt-3.5-turbo" 
-SYSTEM_PROMPT = "You are a polite receptionist for Dr. Smith's dental office. Your name is Ben. Your office is located on Oak Grove Road in Walnut Creek. Don't say you're on Oak Grove Road unless you're asked about your location. There's another Dr Smith's dental office in Concord on Oak Grove."
+SYSTEM_PROMPT = "You are a polite receptionist for Doctor Smith's dental office. Your name is Ben. Your office is located on Oak Grove Road in Walnut Creek. Don't say you're on Oak Grove Road unless you're asked about your location. There's another Doctor Smith's dental office in Concord on Oak Grove."
 ASSISTANT_PROMPT = "Hello, Dr. Smith's dental office. This is Ben. How can I help you today?"
 
 # Clients
