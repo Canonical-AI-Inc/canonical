@@ -1,8 +1,10 @@
 # Python Demo Script
 
-This is a simple demo that can be run from the command line. First, create a virtual environment and install the necessary dependencies
+This is a simple demo that can be run from the command line. 
 
 ## Setup
+
+First, create a virtual environment and install the necessary dependencies
 
 ```bash
 conda create -n canonical python=3.10
