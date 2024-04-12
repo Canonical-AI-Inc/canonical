@@ -28,24 +28,26 @@ python demo.py
 
 ## How To Use The Demo
 
-1. Update the system prompt to start a new cache.
-2. Click 'Run' in Replit to start the demo.
-3. Start chatting with the LLM in the console
+1. Update the `SYSTEM PROMPT` in `demo.py` to start a new cache.
+2. Save `demo.py`.
+3. Run the script.
+3. Start chatting with the LLM.
 
 ## When Can I Expect a Cache Hit?
 
 The Canonical AI Semantic Cache is built for Conversational AI. For caching to work in a conversational application, the semantic cache must be aware of the chat history and the context of each query. In other words, a cache hit requires the user query and previous user-LLM interactions to match. As such, asking the same thing over and over won't necessarily produce a cache hit. After all, you wouldn't want that to be the experience in human conversations!
 
 Here are some tips:
-1. Start a new cache by updating the System Prompt in the Python code.
-2. Click 'Run' on replit and have a conversation with the LLM in the console. The new cache will get populated with LLM responses.
-3. Click 'Stop' on replit, then click 'Run' to start a new conversation.
+1. Start a new cache by updating `SYSTEM PROMPT` in `demo.py`.
+2. Save `demo.py`.
+2. Run the script and have a conversation with the LLM in your terminal. The new cache will get populated with LLM responses.
+3. Type `Ctrl + C` to stop the session. Then, type `python demo.py` to start a new conversation.
 4. Have a new conversation with the LLM. When you ask questions similar to what you asked in your last conversation, you'll get cache hits.
 5. Note: the cache update lag is set to five seconds for this demo. This is important for conversational LLM caching because it prevents the user and LLM from getting stuck in a loop.
 
 ## Example
 
-Update the System Prompt in the Python code to start a new cache. Then click 'Run' on Replit to start a conversation.
+Update the `SYSTEM PROMPT` in `demo.py` to start a new cache. Then, run the script with `python demo.py` to start a conversation.
 
 ```
 Assistant: Hello, Dr. Smith's dental office. This is Tim. How can I help you today?
@@ -60,7 +62,7 @@ Assistant: I apologize for any inconvenience, but our office is closed on Sunday
 
 ```
 
-Click 'Stop' on Replit, then click 'Run' to start a new conversation.
+Type `Ctrl + C` to end the conversation. Then, type `python demo.py` to start a new conversation.
 
 ```
 Assistant: Hello, Dr. Smith's dental office. This is Tim. How can I help you today?
