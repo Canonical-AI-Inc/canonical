@@ -49,7 +49,7 @@ Deploy the Canonical Cache and get there faster.
 
 _API and Proxy_
 
-You connect with the Canonical Cache via an API call. You call the Canonical Cache before you call the LLM API. If the Canonical Cache finds a hit, it returns the cached response. If there is no cache hit, then Canonical returns a 404 and you then call the LLM. You can also integrate Canonical via proxy integration using the Open AI base URL. Check out the python example below. [See here]([https://github.com/Canonical-AI-Inc/canonical](https://github.com/Canonical-AI-Inc/canonical/tree/main/examples) for a more detailed guide to getting started.
+You connect with the Canonical Cache via an API call. You call the Canonical Cache before you call the LLM API. If the Canonical Cache finds a hit, it returns the cached response. If there is no cache hit, then Canonical returns a 404 and you then call the LLM. You can also integrate Canonical via proxy integration using the Open AI base URL. Check out the python example below. [See here](https://github.com/Canonical-AI-Inc/canonical](https://github.com/Canonical-AI-Inc/canonical/tree/main/examples) for a more detailed guide to getting started.
 
 ```python
 import httpx
