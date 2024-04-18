@@ -81,6 +81,12 @@ Assistant: Certainly! We have availability on Monday. (Cache Hit: False)
 
 ```
 
+It'll look like this:
+
+![canonical-ai-semantic-cache-demo--dentist-office-location-40s](https://github.com/Canonical-AI-Inc/canonical/assets/640297/ef067753-98b7-4441-b27a-86c45f5bde6a)
+
+
+
 ## Learn More
 
 For more information about the Canonical AI LLM Cache, visit us [here!](https://canonical.chat/) Or [email us](mailto:hello@canonical.chat) for an API key for your project! We'd love to hear from you!
