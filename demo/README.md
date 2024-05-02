@@ -43,42 +43,39 @@ Here are some tips:
 2. Run the script and have a conversation with the LLM in your terminal. The new cache will get populated with LLM responses.
 3. Type `Ctrl + C` to stop the session. Then, type `python demo.py` to start a new conversation.
 4. Have a new conversation with the LLM. When you ask questions similar to what you asked in your last conversation, you'll get cache hits.
-5. Note: the cache update lag is set to five seconds for this demo. This is important for conversational LLM caching because it prevents the user and LLM from getting stuck in a loop.
+
+Caveats:
+1. The cache update lag is set to five seconds for this demo. This is important for conversational LLM caching because it prevents the user and LLM from getting stuck in a loop.
+2. For privacy reasons, we don't cache queries with sensitive information like social security numbers. If you want a cache hit, don't use sensitive information. 
 
 ## Example
 
 Update the `SYSTEM_PROMPT` in `demo.py` to start a new cache. Then, run the script with `python demo.py` to start a conversation.
 
 ```
-Assistant: Hello, Dr. Smith's dental office. This is Tim. How can I help you today?
+Assistant: Hello, Dr. Smith's dental office. How may I assist you today?
 
-User (you): Hi, do you have any appointments for today?
+User (you): Hi, is this Doctor Smith's office?
 
-Assistant: I'm sorry, we don't. (Cache Hit: False, assuming you've updated the System Prompt and you're working in a new cache.)
+Assistant: Yes, this is Dr. Smith's dental office. How may I assist you today? (Cache Hit: False)
 
-User (you): How about Sunday?
+User (you): Are you on Oak Grove Road?
 
-Assistant: I apologize for any inconvenience, but our office is closed on Sundays. (Cache Hit: False, assuming you've updated the System Prompt and you're working in a new cache.)
-
+Assistant: Yes, we are located on Oak Grove Road in Walnut Creek. How can I assist you further? (Cache Hit: False)
 ```
 
 Type `Ctrl + C` to end the conversation. Then, type `python demo.py` to start a new conversation.
 
 ```
-Assistant: Hello, Dr. Smith's dental office. This is Tim. How can I help you today?
+Assistant: Hello, Dr. Smith's dental office. How may I assist you today?
 
-User (you): Hi, do you have any appointments for later today?
+User (you): Hello, Doctor Smith's office?
 
-Assistant: I'm sorry, we don't. (Cache Hit: True)
+Assistant: Yes, this is Dr. Smith's dental office. How may I assist you today? (Cache Hit: True)
 
-User (you): What about Sunday?
+User (you): Is your office on Oak Grove Road?
 
-Assistant: I apologize for any inconvenience, but our office is closed on Sundays. (Cache Hit: True)
-
-User (you): What about Monday?
-
-Assistant: Certainly! We have availability on Monday. (Cache Hit: False)
-
+Assistant: Yes, we are located on Oak Grove Road in Walnut Creek. How can I assist you further? (Cache Hit: True)
 ```
 
 It'll look like this:
@@ -87,6 +84,8 @@ It'll look like this:
 
 
 
-## Learn More
+## Your Turn
 
-For more information about the Canonical AI LLM Cache, visit us [here!](https://canonical.chat/) Or [email us](mailto:hello@canonical.chat) for an API key for your project! We'd love to hear from you!
+To try out the Canonical AI Conversational LLM Cache, visit our website to get an API key [here!](https://canonical.chat/) 
+
+Or [email us](mailto:hello@canonical.chat) if you'd like to talk about LLM caching! We'd love to hear from you!
