@@ -16,9 +16,9 @@ In the second conversation (after the terminal is cleared), the user asks the sa
 
 ## Features
 
+- **Context-Aware Semantic Caching.** High precision caching for conversational AI (i.e., Voice AI agents). Get cache hits only when it's contextually appropriate. 
+- **High Recall Semantic Caching.** Get cache hits even for open-ended applications where you wouldn’t expect many cache hits. 
 - **Fast Semantic Caching.** Response times are ~40 ms for on-prem deployments and ~120 ms for over-the-network. 
-- **High Precision Semantic Caching.** Quality is paramount for your user experience. On a cache hit, the Canonical Cache correctly answers the user query. 
-- **High Recall Semantic Caching.** Get cache hits even for applications where you wouldn’t expect many cache hits.
 - **Secure Semantic Caching.** Queries with PII are not cached so user data is safe.
 - **Multitenancy.** Each product, each AI persona, or each user can have its own cache. You decide the scope of the cache.
 - **Tunable Cache Temperature.** You decide whether you want a cache hit to return the same response or differently phrased responses.
