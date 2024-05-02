@@ -18,7 +18,8 @@ In the second conversation (after the terminal is cleared), the user asks the sa
 
 - **Fast Semantic Caching.** Response times are ~40 ms for on-prem deployments and ~120 ms for over-the-network. 
 - **High Precision Semantic Caching.** Quality is paramount for your user experience. On a cache hit, the Canonical Cache correctly answers the user query. 
-- **High Recall Semantic Caching.** Get cache hits even for applications where you wouldn’t expect many cache hits. 
+- **High Recall Semantic Caching.** Get cache hits even for applications where you wouldn’t expect many cache hits.
+- **Secure Semantic Caching.** Queries with PII are not cached so user data is safe.
 - **Multitenancy.** Each product, each AI persona, or each user can have its own cache. You decide the scope of the cache.
 - **Tunable Cache Temperature.** You decide whether you want a cache hit to return the same response or differently phrased responses.
 - **Simple Integration.** Deploy our LLM Cache one step upstream of your LLM call. If there’s a cache hit, don’t call your LLM. If there’s a cache miss, then update the semantic cache with the LLM completion after you’ve responded to the user.
@@ -49,49 +50,11 @@ Deploy the Canonical Cache and get there faster.
 
 _API and Proxy_
 
-You connect with the Canonical Cache via an API call. You call the Canonical Cache before you call the LLM API. If the Canonical Cache finds a hit, it returns the cached response. If there is no cache hit, then Canonical returns a 404 and you then call the LLM. You can also integrate Canonical via proxy integration using the Open AI base URL. Check out the python example below. See [here](https://github.com/Canonical-AI-Inc/canonical/tree/main/examples) for a more detailed guide to getting started.
-
-```python
-import httpx
-import openai
-import os
-import requests
-
-# create an OpenAI client that points to Canonical
-client = openai.OpenAI(
-  base_url="https://cacheapp.canonical.chat/",
-  http_client=httpx.Client(
-      headers={
-          "X-Canonical-Api-Key": "<api_key>",
-      },
-    ),
-)
-
-# Instead of sending the request to your LLM, send it to Canonical.
-# Catch the 404 on a cache miss.
-try:
-    completion = client.chat.completions.create(...)
-except openai.NotFoundError as e:
-    # send to LLM
-
-# After receiving the response from the LLM, send it to Canonical to cache it.
-requests.request(
-    method="POST",
-    url="https://cacheapp.canonical.chat/api/v1/cache",
-    headers={
-        "Content-Type": "application/json",
-        "X-Canonical-Api-Key": "<api_key>",
-    },
-    data=json.dumps({
-        "temperature": "<temperature>",
-        "messages": "<msglist>",
-    })
-)
-```
+You can connect with the Canonical Cache via an API call. You call the Canonical Cache before you call the LLM API. If the Canonical Cache finds a hit, it returns the cached response. If there is no cache hit, then Canonical returns a 404 and you then call the LLM. You can also integrate Canonical via proxy integration using the Open AI base URL. See [here](https://github.com/Canonical-AI-Inc/canonical/tree/main/examples) for a more detailed guide to getting started.
 
 _On-Prem_
 
-Coming soon! We're working on seemless Docker and Helm deployments.
+You can also self-host the Canonical cache. We built it with the goal of minimizing the configuration burden. 
 
 ## Save 50% On Your LLM Token Costs
 
@@ -99,4 +62,6 @@ We charge only for cache hits. Whatever model you're using, we charge 50% of the
 
 ## Don't Delay On Dropping Latency
 
-If you're interested in trying out the Canonical Cache, please [email us!](mailto:hello@canonical.chat) We'll send you an API key. 
+If you're interested in trying out the Canonical Cache, visit [our website](https://canonical.chat/) to get an API key! 
+
+Or [email us](mailto:hello@canonical.chat) to set up a time to learn more about conversational AI caching. We'd love to hear from you!
