@@ -31,11 +31,15 @@ python example.py
 The Canonical AI Semantic Cache is built for Conversational AI. For caching to work in a conversational application, the semantic cache must be aware of the chat history and the context of each query. In other words, a cache hit requires the user query and previous user-LLM interactions to match. As such, asking the same thing over and over won't necessarily produce a cache hit. After all, you wouldn't want that to be the experience in human conversations!
 
 Here are some tips:
-1. Start a new cache by updating your System Prompt.
-2. Run the script and have a conversation with the LLM. The new cache will get populated with LLM responses.
-3. End the session, then start a new session.
+1. Start a new cache by updating `SYSTEM_PROMPT` in `demo.py`.
+2. Save `demo.py`.
+2. Run the script and have a conversation with the LLM in your terminal. The new cache will get populated with LLM responses.
+3. Type `Ctrl + C` to stop the session. Then, type `python demo.py` to start a new conversation.
 4. Have a new conversation with the LLM. When you ask questions similar to what you asked in your last conversation, you'll get cache hits.
-5. Note: the cache update lag is set to five seconds for this demo. This is important for conversational LLM caching because it prevents the user and LLM from getting stuck in a loop.
+
+Caveats:
+1. The cache update lag is set to five seconds for this demo. This is important for conversational LLM caching because it prevents the user and LLM from getting stuck in a loop.
+2. For privacy reasons, we don't cache queries with sensitive information like social security numbers. If you want a cache hit, don't use sensitive information. 
 
 Here is an example:
 
