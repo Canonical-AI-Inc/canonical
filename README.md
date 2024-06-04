@@ -18,7 +18,7 @@ We’ve talked to many developers who try semantic caching with a simple cosine 
 
 An accurate and effective LLM cache needs to understand the context of the conversation with the user. It’s lifetimes of work. Lifetimes that AI developers should spend building their core user product rather than infrastructure.
 
-## Context-Aware Semantic Caching
+## Canonical AI Context-Aware Semantic Caching
 
 - **High Precision Semantic Caching.** For conversational AI (i.e., Voice AI agents), get cache hits only when it's [contextually appropriate](https://canonical.chat/blog/how_to_build_context_aware_semantic_cache). 
 - **High Recall Semantic Caching.** For many AI applications, the Canonical AI Cache hit rate is above 20%. Even in open-ended conversations without much repetition, our cache gets hits in the beginning and end of a session. The first and final impressions are critical for user experience.
