@@ -43,11 +43,11 @@ To take full advantage of caching's latency improvements, you can self-host the 
 
 _Free Tier_
 
-If you have less than 100k of input and output tokens on your cache hits per month, Canonical AI Cache is free. 
+If you have less than 10k of input and output tokens on your cache hits per month, Canonical AI Cache is free. 
 
 _Paid Tier_
 
-The paid tier is for developers with 100k of input and output tokens per month. We charge only for cache hits. On cache hits, we charge 50% of the per token price of your LLM model.
+The paid tier is for developers with 10k of input and output tokens on cache hits per month. We charge only for cache hits. On cache hits, we charge 50% of the per token price of your LLM model.
 
 ## Don't Delay On Dropping Latency
 
