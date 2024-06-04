@@ -20,16 +20,12 @@ An accurate and effective LLM cache needs to understand the context of the conve
 
 ## Context-Aware Semantic Caching
 
-- **Context-Aware Semantic Caching.** High precision caching for conversational AI (i.e., Voice AI agents). Get cache hits only when it's [contextually appropriate](https://canonical.chat/blog/how_to_build_context_aware_semantic_cache). 
+- **High Precision Semantic Caching.** For conversational AI (i.e., Voice AI agents), get cache hits only when it's [contextually appropriate](https://canonical.chat/blog/how_to_build_context_aware_semantic_cache). 
 - **High Recall Semantic Caching.** For many AI applications, the Canonical AI Cache hit rate is above 20%. Even in open-ended conversations without much repetition, our cache gets hits in the beginning and end of a session. The first and final impressions are critical for user experience.
 - **Fast Semantic Caching.** Response times are ~50 ms for on-prem deployments and ~120 ms for over-the-network. 
 - **Secure Semantic Caching.** Personally Identifiable Information (PII) is never cached so user data is safe.
 - **Tunable Cache Temperature.** You decide whether you want a cache hit to return the same response or differently phrased responses.
-- **One Call For Caching and Knowledge Retrieval** On cache misses, we retrieve knowledge (i.e., the R in RAG), which you augment and return to the user.
-- **Simple Integration.** Deploy our LLM Cache one step upstream of your LLM call. If there’s a cache hit, don’t call your LLM. If there’s a cache miss, then update the semantic cache with the LLM completion after you’ve responded to the user.
-
-
-
+- **One Call For Caching and Knowledge Retrieval.** On cache misses, we retrieve knowledge (i.e., the R in RAG), which you augment and return to the user.
 
 ## Integration
 
