@@ -14,7 +14,7 @@ In the second conversation (after the terminal is cleared), the user asks the sa
 
 ## Doesn't My Vector DB Have A Semantic Cache?
 
-We’ve talked to many developers who try semantic caching with a simple cosine similarity search (like the ones that come with Vector DBs), see the unsurprisingly poor accuracy from this context-agnostic approach, and kick the can on LLM caching’s cost and latency improvements.
+We’ve talked to many developers who try semantic caching with a simple cosine similarity search (like the ones that come with vector databases), see the unsurprisingly poor accuracy from this context-agnostic approach, and kick the can on LLM caching’s cost and latency improvements.
 
 An accurate and effective LLM cache needs to understand the context of the conversation with the user. It’s lifetimes of work. Lifetimes that AI developers should spend building their core user product rather than infrastructure.
 
