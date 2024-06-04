@@ -17,20 +17,20 @@ In the second conversation (after the terminal is cleared), the user asks the sa
 ## Features
 
 - **Context-Aware Semantic Caching.** High precision caching for conversational AI (i.e., Voice AI agents). Get cache hits only when it's [contextually appropriate](https://canonical.chat/blog/how_to_build_context_aware_semantic_cache). 
-- **High Recall Semantic Caching.** Our average hit rate is 15%. Even in open-ended conversations, our LLM cache gets hits in the beginning and end of a session. The first and final impressions are critical for user experience.
+- **High Recall Semantic Caching.** Our average hit rate is ~15%. Even in open-ended conversations, our LLM cache gets hits in the beginning and end of a session. The first and final impressions are critical for user experience.
 - **Fast Semantic Caching.** Response times are ~50 ms for on-prem deployments and ~120 ms for over-the-network. 
 - **Secure Semantic Caching.** Personally Identifiable Information (PII) is never cached so user data is safe.
 - **Multitenancy.** Each product, each AI persona, or each user can have its own cache. You decide the scope of the cache.
 - **Tunable Cache Temperature.** You decide whether you want a cache hit to return the same response or differently phrased responses.
 - **Simple Integration.** Deploy our LLM Cache one step upstream of your LLM call. If there’s a cache hit, don’t call your LLM. If there’s a cache miss, then update the semantic cache with the LLM completion after you’ve responded to the user.
 
-## Build Versus Buy
+## Doesn't My Vector DB Have A Semantic Cache?
 
-A simple cosine similarity search cache is so inaccurate that it would kill your product. For context-dependent applications where a user is conversing with the AI, a context-awareness is required for accurate semantic caching. 
+We’ve talked to many developers who try LLM caching with a simple cosine similarity search, see the unsurprisingly poor accuracy from this context-agnostic approach, and kick the can on caching’s cost and latency improvements.
 
-Whether you’re a startup or an established player, you’re in a race with everyone else to capture the spoils of Generative AI. 
+An accurate and effective LLM cache needs to understand the context of the conversation with the user. It’s lifetimes of work. Lifetimes that AI developers should spend building their core user product rather than infrastructure.
 
-Deploy the Canonical Cache and get there faster.
+Whether you’re a startup or an established player, you’re in a race with everyone else to capture the spoils of Generative AI. Deploy the Canonical Cache and get there faster.
 
 ## Integration
 
@@ -42,12 +42,18 @@ _On-Prem_
 
 To take full advantage of caching's latency improvements, you can self-host the Canonical cache. We built it with the goal of minimizing the configuration burden. [Reach out](mailto:hello@canonical.chat) to tell us more about your architecture and how to get started.
 
-## Save 50% On Your LLM Token Costs
+## Pricing
 
-We charge only for cache hits. On cache hits, we charge 50% of the per token price of your LLM model.
+_Free Tier_
+
+If you have less than 100k of input and output tokens on your cache hits per month, Canonical Cache is free. 
+
+_Paid Tier_
+
+The paid tier is for developers with 100k of input and output tokens per month. We charge only for cache hits. On cache hits, we charge 50% of the per token price of your LLM model.
 
 ## Don't Delay On Dropping Latency
 
-If you're interested in trying out the Canonical Cache, visit [our website](https://canonical.chat/) to get an API key! 
+If you're interested in trying out the Canonical Cache, visit [our website](https://canonical.chat/) to get an API key for a free two-week trial! 
 
 Or [email us](mailto:hello@canonical.chat) to set up a time to learn more about conversational AI caching. We'd love to hear from you!
