@@ -2,11 +2,9 @@
 
 Context-Aware Semantic Cache for Conversational AI
 
-## How Does Semantic Caching Work?
+## How Does Simple Semantic Caching Work?
 
-For simple, context-agnostic semantic caching, take the user query and perform a vector search on the cache of previous responses to find what is essentially the same query – even if the query phrasing is different. If a match is found in the semantic cache, return the response from the semantic cache rather than calling the LLM. A semantic cache hit has a faster response time and costs less compared to an LLM.
-
-## Semantic Cache Demo
+For simple, context-agnostic semantic caching, take the user query and perform a vector search on the cache to find what is essentially the same query – even if the user query phrasing is different. If a match is found in the semantic cache, return the response from the semantic cache rather than calling the LLM. A semantic cache hit has a faster response time and costs less compared to an LLM.
 
 ![canonical-ai-semantic-cache-demo--dentist-office-location-40s](https://github.com/Canonical-AI-Inc/canonical/assets/640297/91116289-d86e-4f96-8057-ea987525e39d)
 
@@ -14,7 +12,7 @@ In the first conversation, the user asks new questions, the LLM responds, and th
 
 In the second conversation (after the terminal is cleared), the user asks the same questions, but with different phrasing. The responses are returned from the semantic cache and the time to first token is 10x faster.
 
-## Features
+## Canonical AI Context-Aware Semantic Caching
 
 - **Context-Aware Semantic Caching.** High precision caching for conversational AI (i.e., Voice AI agents). Get cache hits only when it's [contextually appropriate](https://canonical.chat/blog/how_to_build_context_aware_semantic_cache). 
 - **High Recall Semantic Caching.** Our average hit rate is ~15%. Even in open-ended conversations, our LLM cache gets hits in the beginning and end of a session. The first and final impressions are critical for user experience.
