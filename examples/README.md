@@ -37,7 +37,8 @@ Here are some tips:
 
 Caveats:
 1. The cache update lag is set to five seconds for this demo. This is important for conversational LLM caching because it prevents the user and LLM from getting stuck in a loop.
-2. For privacy reasons, we don't cache queries with sensitive information like social security numbers. If you want a cache hit, don't use sensitive information. 
+2. For privacy reasons, we don't cache queries with sensitive information like social security numbers. If you want a cache hit, don't use sensitive information.
+3. Set the temperature parameter to 0. If the temperature is greater than 0, the cache gets populated with more than one LLM response per key. At temperature greater than zero, you won't see cache hits for a given query until the cache is fully populated.
 
 Here is an example:
 
