@@ -119,6 +119,7 @@ def main():
             msg = display_completion(response, False, duration, True)
             messages.append({"role": "assistant", "content": msg})
             update_cache(messages)
+            time.sleep(5)                              # see caveats section in README
 
 
 if __name__ == "__main__":

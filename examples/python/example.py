@@ -2,6 +2,7 @@ import json
 import os
 from typing import List
 
+import time
 import httpx
 import openai
 import requests
@@ -93,6 +94,7 @@ def main() -> None:
         msg = displaycompletion(response, stream)
         examplemsgs.append({"role": "assistant", "content": msg})
         updatecache(examplemsgs, TEMPERATURE)
+        time.sleep(5)                                      # see caveats section in README
 
 
 if __name__ == "__main__":
