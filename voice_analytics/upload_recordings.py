@@ -15,10 +15,11 @@ from urllib.parse import urlparse
 # API_KEY = os.environ["CANONICAL_API_KEY"]
 
 # User inputs
-API_KEY = ''
-SLUG = '' # this is the name of the ai assistant as you want it to appear on our dashboard
-input_filename = '' # this is a csv with a list of publicly-accessible urls for the audio recordings
-ai_speaks_first = True
+INPUT_FILENAME = '' # this is a csv with a list of publicly-accessible urls for the audio recordings
+API_KEY = ''        # your Canonical AI API key
+SLUG = ''           # this is the name of the ai assistant as you want it to appear on our dashboard. Often it's a alphanumeric assistant id from the db.
+DESCRIPTION = ''    # this is a human-readable description of the ai assistant or assistant type.
+AI_SPEAKS_FIRST = True # set this to true is the ai speaks first in the call
 
 CANONICAL_API = 'https://voiceapp.canonical.chat'
 HEADERS = {
@@ -39,7 +40,8 @@ def process_url(url):
             json={
                 "assistant": {
                     "id": SLUG,
-                    "speaksFirst": ai_speaks_first
+                    "speaksFirst": AI_SPEAKS_FIRST,
+                    "description": DESCRIPTION
                 },
                 "location": url,
                 "callId": filename
@@ -52,7 +54,7 @@ def process_url(url):
         print(f"Error processing {filename}: {str(error)}")
 
 def main():
-    with open(input_filename, 'r') as csvfile:
+    with open(INPUT_FILENAME, 'r') as csvfile:
         csv_reader = csv.reader(csvfile)
         for row in csv_reader:
             if row:  # Check if the row is not empty
